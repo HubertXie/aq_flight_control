@@ -33,18 +33,83 @@ pidStruct_t *pidInit(int pParam, int iParam, int dParam, int fParam, int pMaxPar
 
     pid = (pidStruct_t *)aqDataCalloc(1, sizeof(pidStruct_t));
 	
-    pid->p = configGetParamValue(pParam);
-    pid->i = configGetParamValue(iParam);
-    pid->d = configGetParamValue(dParam);
-    pid->f = configGetParamValue(fParam);
-    pid->pMax = configGetParamValue(pMaxParam);	
-	pid->iMax = configGetParamValue(iMaxParam);
-    pid->dMax = configGetParamValue(dMaxParam);		
-    pid->oMax = configGetParamValue(oMaxParam);
+	if (pParam)
+	{	
+        pid->p = configGetParamValue(pParam);
+	}	
+	else
+	{
+		pid->p = 0;
+	}	
+	
+	if (iParam)
+	{	
+        pid->i = configGetParamValue(iParam);
+	}	
+	else
+	{
+	    pid->i = 0;
+	}
+	
+    if (dParam)	
+	{	
+        pid->d = configGetParamValue(dParam);
+	}	
+	else
+	{
+	    pid->d = 0; 
+	}	
+	
+	if (fParam)
+	{	
+        pid->f = configGetParamValue(fParam);
+	}	
+	else
+	{
+	    pid->f = 0;
+	}
+	
+	if (pMaxParam)
+	{	
+        pid->pMax = configGetParamValue(pMaxParam);	
+	}	
+	else
+	{
+	    pid->pMax = 0;
+	}	
+	
+	if (iMaxParam)
+	{
+	    pid->iMax = configGetParamValue(iMaxParam);
+	}	
+	else
+	{
+	    pid->iMax = 0;
+	}
+	
+	if (dMaxParam)
+	{	
+        pid->dMax = configGetParamValue(dMaxParam);	
+    }	
+    else
+    {
+	    pid->dMax = 0;
+	}
+	
+	if (pid->oMax)
+	{	
+        pid->oMax = configGetParamValue(oMaxParam);
+	}	
+	else
+	{
+	    pid->oMax = 0;
+	}	
 	
 	pid->error_last = 0.0f;
 	pid->error_sum = 0.0f;
 	pid->error_delta = 0.0f;
+
+    return pid;
 
     return pid;
 }
