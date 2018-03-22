@@ -13,10 +13,10 @@
     You should have received a copy of the GNU General Public License
     along with AutoQuad.  If not, see <http://www.gnu.org/licenses/>.
 
-    Copyright � 2011-2014  Bill Nesbitt
+    Copyright © 2011-2014  Bill Nesbitt
     Copyright 2016 Maxim Paperno
 	
-	�޸ģ�2018.1.6 jiezhi320  
+	ÐÞ¸Ä£º2018.1.6 jiezhi320  
 */
 
 #include "pid.h"
@@ -96,7 +96,7 @@ pidStruct_t *pidInit(int pParam, int iParam, int dParam, int fParam, int pMaxPar
 	    pid->dMax = 0;
 	}
 	
-	if (pid->oMax)
+	if (oMaxParam)
 	{	
         pid->oMax = configGetParamValue(oMaxParam);
 	}	
